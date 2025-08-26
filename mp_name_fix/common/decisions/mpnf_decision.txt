@@ -8,16 +8,26 @@ mpnf_decision = {
     is_shown = {
         always = yes
     }
-    
+
     effect = {
         custom_tooltip = mpnf_decision_custom.tt 
 
         # set all house names to themselves
         hidden_effect = {
             every_living_character = {
-                house = {
-                    set_house_name_from_house = this
+                
+                save_scope_as = curr_char
+
+                set_global_variable = {
+                    name = temp_char
+                    value = scope:curr_char
                 }
+
+                house = {
+                    set_house_name = "[GetGlobalVariable('temp_char').Char.GetDynastyHouseNameNoTooltip]"
+                }
+
+                remove_global_variable = temp_char
             }
         }
     }
