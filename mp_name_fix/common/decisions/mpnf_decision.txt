@@ -1,0 +1,25 @@
+mpnf_decision = {
+    picture = { 
+        reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" 
+    }
+
+    desc = mpnf_decision_desc
+
+    is_shown = {
+        always = yes
+    }
+    
+    effect = {
+        custom_tooltip = mpnf_decision_custom.tt 
+
+        # set all house names to themselves
+        hidden_effect = {
+            every_living_character = {
+                house = {
+                    set_house_name_from_house = this
+                }
+            }
+        }
+    }
+    ai_check_interval = 0
+}

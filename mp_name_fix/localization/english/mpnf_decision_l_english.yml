@@ -1,0 +1,6 @@
+﻿l_english:
+ mpnf_decision: "Restore House Names"
+ mpnf_decision_desc: "All living characters missing surnames will have their names restored.\n\nOne player must take this decision once all players have joined the multiplayer lobby."
+ mpnf_decision_tooltip: "Restore the name of every [house|E] in the game."
+ mpnf_decision_confirm: "Restore"
+ mpnf_decision_custom.tt: "Rename every [house|E] to its current name."
