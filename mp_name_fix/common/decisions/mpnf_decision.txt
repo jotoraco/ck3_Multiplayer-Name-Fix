@@ -1,33 +1,73 @@
-mpnf_decision = {
+mpnf_decision_save = {
     picture = { 
         reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" 
     }
 
-    desc = mpnf_decision_desc
+    desc = mpnf_decision_save_desc
 
     is_shown = {
         always = yes
     }
 
     effect = {
-        custom_tooltip = mpnf_decision_custom.tt 
+        custom_tooltip = mpnf_decision_save_custom_tt 
 
-        # set all house names to themselves
+        # store the result of GetName so it can be retreived from GetBaseName later.
+        # this must be done prior to player join for GetName to return anything but " "
         hidden_effect = {
             every_living_character = {
-                
-                save_scope_as = curr_char
-
-                set_global_variable = {
-                    name = temp_char
-                    value = scope:curr_char
-                }
-
+            
                 house = {
-                    set_house_name = "[GetGlobalVariable('temp_char').Char.GetDynastyHouseNameNoTooltip]"
+                    save_scope_as = curr_house
+
+                    set_global_variable = {
+                        name = temp_house
+                        value = scope:curr_house
+                    }
+
+                    set_house_name = "[GetGlobalVariable('temp_house').House.GetNameNoTooltip]"
+
+                    remove_global_variable = temp_house
+                }
+ 
+            }
+        }
+    }
+    ai_check_interval = 0
+}
+
+mpnf_decision_load = {
+    picture = { 
+        reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" 
+    }
+
+    desc = mpnf_decision_load_desc
+
+    is_shown = {
+        always = yes
+    }
+
+    effect = {
+        custom_tooltip = mpnf_decision_load_custom_tt 
+
+        # set the empty name of the House to the BaseName, which is not affected by player join
+        # this should be done after mpnf_decision_save has been taken and BaseNames have been updated 
+        hidden_effect = {
+            every_living_character = {
+            
+                house = {
+                    save_scope_as = curr_house
+
+                    set_global_variable = {
+                        name = temp_house
+                        value = scope:curr_house
+                    }
+
+                    set_house_name = "[GetGlobalVariable('temp_house').House.GetBaseNameNoTooltip]"
+
+                    remove_global_variable = temp_house
                 }
 
-                remove_global_variable = temp_char
             }
         }
     }
