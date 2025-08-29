@@ -1,6 +1,12 @@
 ﻿l_english:
- mpnf_decision: "Restore House Names"
- mpnf_decision_desc: "All living characters missing surnames will have their names restored.\n\nOne player must take this decision once all players have joined the multiplayer lobby."
- mpnf_decision_tooltip: "Restore the name of every [house|E] in the game."
- mpnf_decision_confirm: "Restore"
- mpnf_decision_custom.tt: "Rename every [house|E] to its current name."
+ mpnf_decision_save: "Save House Names"
+ mpnf_decision_save_desc: "This decision must be run prior to other players joining the lobby.\n\nSaves the currently working House names for later restoration by the 'Load House Names' decision."
+ mpnf_decision_save_tooltip: "Save the name of every [house|E] in the game for restoration."
+ mpnf_decision_save_custom_tt: "Save the name of every [house|E] in the game with currently living characters."
+ mpnf_decision_save_confirm: "Save"
+
+ mpnf_decision_load: "Load House Names"
+ mpnf_decision_load_desc: "This decision must be run after all players have joined the lobby, and the 'Save House Names' decision has already been taken.\n\n Restores the names of all Houses based on the values saved via the 'Save House Names' decision."
+ mpnf_decision_load_tooltip: "Restore the name of every [house|E] saved via Save House Names."
+ mpnf_decision_load_custom_tt: "Restore the name of every [house|E] in the game with currently living characters."
+ mpnf_decision_load_confirm: "Load"
